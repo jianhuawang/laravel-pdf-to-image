@@ -1,0 +1,27 @@
+{
+    "name": "jianhuawang/laravel_pdf_to_image",
+    "description": "Convert pdf files to images",
+    "type": "composer-plugin",
+    "require": {
+        "spatie/pdf-to-image": "^1.8",
+        "laravel/laravel": "5.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jianhua Wang",
+            "email": "610304002@qq.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jianhuawang\\PdfToImage\\PdfToImageServiceProvider"
+            ],
+            "aliases": {
+                "PdfToImage": "Jianhuawang\\PdfToImage\\PdfToImageFacade"
+            }
+        }
+    }
+
+}
