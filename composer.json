@@ -3,8 +3,8 @@
     "description": "Convert pdf files to images",
     "type": "composer-plugin",
     "require": {
-        "spatie/pdf-to-image": "^1.8",
-        "laravel/laravel": "5.4"
+        "intervention/image": "^2.4",
+        "laravel/laravel": "~5.0"
     },
     "license": "MIT",
     "authors": [
