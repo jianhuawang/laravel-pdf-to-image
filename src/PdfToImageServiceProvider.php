@@ -6,6 +6,13 @@ use Illuminate\Support\ServiceProvider;
 
 class PdfToImageServiceProvider extends ServiceProvider
 {
+     /**
+     * 服务提供者加是否延迟加载.
+     *
+     * @var bool
+     */
+    protected $defer = true;
+    
     /**
      * Bootstrap the application services.
      *
@@ -26,6 +33,16 @@ class PdfToImageServiceProvider extends ServiceProvider
         $this->app->bind('PdfToImage',function(){
             return new \JianhuaWang\PdfToImage\PdfToImageMaker();
         });
+    }
+    
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return ['PdfToImage'];
     }
     
 }
