@@ -23,6 +23,9 @@ class PdfToImageServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('PdfToImage',function(){
+            return new \JianhuaWang\PdfToImage\PdfToImageMaker();
+        });
     }
+    
 }
