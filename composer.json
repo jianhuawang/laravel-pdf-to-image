@@ -29,7 +29,8 @@
             "aliases": {
                 "PdfToImage": "JianhuaWang\\PdfToImage\\PdfToImageFacade"
             }
-        }
+        },
+        "class":"JianhuaWang\\PdfToImage\\PdfToImageMaker"
     }
 
 }
