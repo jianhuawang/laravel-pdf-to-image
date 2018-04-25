@@ -23,12 +23,7 @@
     },
     "extra": {
         "laravel": {
-            "providers": [
-                "Jianhuawang\\PdfToImage\\PdfToImageServiceProvider"
-            ],
-            "aliases": {
-                "PdfToImage": "Jianhuawang\\PdfToImage\\PdfToImageFacade"
-            }
+            
         }
     }
 
