@@ -15,8 +15,11 @@
         }
     ],
     "autoload": {
+        "psr-0": {
+            "JianhuaWang\\PdfToImage\\": "src"
+        },
         "psr-4": {
-            "JianhuaWang\\PdfToImage\\": "./src/"
+            "JianhuaWang\\PdfToImage\\": "src"
         },
         "files": [
             
@@ -31,7 +34,7 @@
                 "PdfToImage": "JianhuaWang\\PdfToImage\\PdfToImageFacade"
             }
         },
-        "PdfToImageMaker":"JianhuaWang\\PdfToImage\\PdfToImageMaker"
+        "class":"JianhuaWang\\PdfToImage\\PdfToImageMaker"
     }
 
 }
