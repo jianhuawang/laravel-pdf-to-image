@@ -161,7 +161,7 @@ class PdfToImageMaker
      */
     public function getImageMaker()
     {
-        return Image::make($this->getImagick());
+        return Image::make($this->getImagick($this->currentPage));
     }
 
     /**
