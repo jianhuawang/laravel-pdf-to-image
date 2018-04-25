@@ -13,6 +13,14 @@
             "email": "610304002@qq.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Jianhuawang\\PdfToImage\\": "src/"
+        },
+        "files": [
+            
+        ]
+    },
     "extra": {
         "laravel": {
             "providers": [
