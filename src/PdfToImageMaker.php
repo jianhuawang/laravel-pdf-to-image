@@ -6,8 +6,8 @@ namespace JianhuaWang\PdfToImage;
  * split pdf file and save as image by one page
  * 
  */
-use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class PdfToImageMaker
 {
@@ -170,15 +170,18 @@ class PdfToImageMaker
     protected function getImagick($pagePointer)
     {
         $pdfStorage = Storage::disk($this->pdfDisk);
+        if(!$pdfStorage->exists($this->pdfFile)){
+            throw new Exception("$this->pdfFile does not exists");
+        }
         $pdfFileName = $pdfStorage->path($this->pdfFile);
 
         $imagick = new \imagick();
-        //压缩率
+        
+        //set resolution
         $imagick->setResolution($this->resolutionX, $this->resolutionY);
 
-        //读取当前页
+        //read current page to imagick object
         $imagick->readimage($pdfFileName . "[$pagePointer]");
-
         return $imagick;
     }
 
@@ -210,16 +213,16 @@ class PdfToImageMaker
      */
     public function saveImages()
     {
-        $start = max($this->currentPage - 1, 0);
-
         $imagick = $this->getImagick($start);
         $totalPages = (int) $imagick->getnumberimages();
         $this->totalPages = $totalPages;
 
-        $end = intval($start + $this->offset);
+        $end = intval($this->currentPage + $this->offset);
         $end = min($totalPages, $end);
 
-        for ($i = $start; $i <= $end; $i++) {
+        $start = max($this->currentPage - 1, 0);
+        
+        for ($i = $start; $i < $end; $i++) {
             $this->saveImage($i);
         }
 
