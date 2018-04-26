@@ -6,7 +6,7 @@ Laravel 5下的 PDF 转图片工具包，
 <p>本包提供了Laravel 5 把pdf文件转换为图片的功能, 同时基于Laravel Storage 对生成的图片进行存储和管理。</p>
 <h4>功能列表：</h4>
 <ol>
-<li>按页转换PDF文件为图片，每页生成张图片</li>
+<li>按页转换PDF文件为图片，每页生成1张图片</li>
 <li>保存到指定的存储空间</li>
 <li>支持云存储(测试中)</li>
 <li>支持定时任务后台转换图片(开发中)</li>
@@ -49,7 +49,6 @@ composer require jianhuawang/laravel-pdf-to-image:0.3
     use PdfToImage;
     
     PdfToImage::pdfFile('test.pdf')->saveImage();
-    </p>
-    
+  </p>
 </li>
 </ol>
