@@ -13,6 +13,21 @@ Laravel 5下的 PDF 转图片工具包，
 <li>支持队列转换图片(开发中)</li>
 </ol>
 
+<h4>安装Installation:</h4>
+<p>
+composer require jianhuawang/laravel-pdf-to-image:0.3
+</p>
+<h3>Laravel >= 5.5, after install nothing left to do.</h3>
+<h3>Laravel <5.5</h3>
+<p>
+  Add a provider in providers array in config/app.php:<br>
+  JianhuaWang\PdfToImage\PdfToImageMaker::class,
+  Add a aliase in aliases array:<br/>
+  'PdfToImage'=>JianhuaWang\PdfToImage\PdfToImageFacade::class,
+  
+  
+  </p>
+
 <h4>用法Usage:</h4>
 <ol>
   <li>
