@@ -1,10 +1,10 @@
 {
     "name": "jianhuawang/laravel-pdf-to-image",
     "description": "Convert pdf files to images",
-    "keywords": ["pdf to image", "pdf", "laravel", "convert image "],
+    "keywords": ["pdf to image", "pdf", "laravel", "convert image ", "pdt-to-image", "laravel 5"],
     "require": {
         "ext-imagick" : "*",
-        "intervention/image": "^2.4",
+        "intervention/image": "^2.0",
         "illuminate/support": "5.*"
     },
     "license": "MIT",
