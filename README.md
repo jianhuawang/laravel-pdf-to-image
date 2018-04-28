@@ -15,14 +15,14 @@ Laravel 5下的 PDF 转图片工具包，
 
 <h4>安装Installation:</h4>
 <p>
-composer require jianhuawang/laravel-pdf-to-image:0.3
+composer require jianhuawang/laravel-pdf-to-image:0.4
 </p>
-<h3>Laravel >= 5.5, after install nothing left to do.</h3>
-<h3>Laravel <5.5</h3>
+<h5>Laravel >= 5.5, after install nothing left to do.</h5>
+<h5>Laravel <5.5</h5>
 <p>
-  Add a provider in providers array in config/app.php:<br>
-  JianhuaWang\PdfToImage\PdfToImageMaker::class,
-  Add a aliase in aliases array:<br/>
+  Add a provider in providers array in config/app.php:<br/>
+  JianhuaWang\PdfToImage\PdfToImageMaker::class,<br/>
+  Add a aliase in aliases array:<br/>
   'PdfToImage'=>JianhuaWang\PdfToImage\PdfToImageFacade::class,
   
   
@@ -31,23 +31,27 @@ composer require jianhuawang/laravel-pdf-to-image:0.3
 <h4>用法Usage:</h4>
 <ol>
   <li>
+    <P></P>
+    
     <p>
-      $pdfFileNameWithPath='test.pdf';
+      $pdfFileNameWithPath='test.pdf';<br/>
       
       $converter=new JianhuaWang\PdfToImage\PdfToImageMaker($pdfFileNameWithPath);
       $converter->saveImage();
     </p>
+    
     <p>
+    
       Above code will read pdf file on (project root) + /storage/app/test.pdf, and convert first page to image, the image will be saved on (project root) + /storage/app/(current date)/(seconds).jpg
       </p>
   </li>
   <li>
   <p>
-    The following code has same function with above.
+    The following codes has same function with above.
   </p>
   <p>
-    use PdfToImage;
     
+    use PdfToImage;
     PdfToImage::pdfFile('test.pdf')->saveImage();
   </p>
 </li>
