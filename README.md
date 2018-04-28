@@ -30,20 +30,13 @@ composer require jianhuawang/laravel-pdf-to-image:0.4
 
 <h4>用法Usage:</h4>
 <ol>
-  <li>
-    <P></P>
+ <li>
+    Following code will read pdf file on (project root) + /storage/app/test.pdf, and convert first page to image, the image will be saved on (project root) + /storage/app/(current date)/(seconds).jpg
     
-    <p>
-      $pdfFileNameWithPath='test.pdf';<br/>
-      
+      $pdfFileNameWithPath='test.pdf';
       $converter=new JianhuaWang\PdfToImage\PdfToImageMaker($pdfFileNameWithPath);
       $converter->saveImage();
-    </p>
-    
-    <p>
-    
-      Above code will read pdf file on (project root) + /storage/app/test.pdf, and convert first page to image, the image will be saved on (project root) + /storage/app/(current date)/(seconds).jpg
-      </p>
+        
   </li>
   <li>
   <p>
