@@ -23,6 +23,10 @@ Laravel 5下的 PDF 转图片工具包，
         "intervention/image": "^2.0",<br/>
         "illuminate/support": "5.*"<br/>
 </p>
+<p>
+   执行 run:  php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravel5" <br/>
+   then： you will find a new file image.php in folder config. Change " 'driver' => 'gd' " to "  'driver' => 'imagick' "
+</p>
 
 <h4>安装Installation:</h4>
 <p>
@@ -37,6 +41,9 @@ composer require jianhuawang/laravel-pdf-to-image:0.4
   'PdfToImage'=>JianhuaWang\PdfToImage\PdfToImageFacade::class,
   
   
+  </p>
+  <p>
+     
   </p>
 
 <h4>用法Usage:</h4>
