@@ -116,7 +116,7 @@ class PdfToImageMaker
             return $this->distDir;
         }
 
-        $this->savedAs = $dir;
+        $this->distDir = $dir;
         return $this;
     }
 
@@ -166,6 +166,7 @@ class PdfToImageMaker
 
     /**
      * 初始化并返回imagick实例
+     * init and return imagick instance
      */
     protected function getImagick($pagePointer)
     {
