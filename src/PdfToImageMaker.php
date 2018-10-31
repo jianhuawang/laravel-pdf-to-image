@@ -116,7 +116,7 @@ class PdfToImageMaker
             return $this->distDir;
         }
 
-        $this->savedAs = $dir;
+        $this->distDir = $dir;
         return $this;
     }
 
