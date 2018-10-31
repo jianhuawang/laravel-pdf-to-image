@@ -166,6 +166,7 @@ class PdfToImageMaker
 
     /**
      * 初始化并返回imagick实例
+     * init and return imagick instance
      */
     protected function getImagick($pagePointer)
     {
