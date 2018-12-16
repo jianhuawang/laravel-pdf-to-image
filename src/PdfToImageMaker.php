@@ -207,7 +207,8 @@ class PdfToImageMaker
     }
 
     /**
-     * convert angd save images defined by currentPage and offset
+     * convert and save images defined by currentPage and offset. 
+     * convert and save all images  for default setting
      * 
      * @return boolean
      * @throws \ImagickException

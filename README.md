@@ -53,7 +53,8 @@ composer require jianhuawang/laravel-pdf-to-image:0.4
     
       $pdfFileNameWithPath='test.pdf';
       $converter=new JianhuaWang\PdfToImage\PdfToImageMaker($pdfFileNameWithPath);
-      $converter->saveImage();
+
+      $converter->saveImage();// Default action is converting all pages to images.
         
   </li>
   <li>
