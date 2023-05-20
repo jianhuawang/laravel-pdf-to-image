@@ -1,5 +1,6 @@
 {
     "name": "jianhuawang/laravel-pdf-to-image",
+    "type": "library",
     "description": "Convert pdf files to images",
     "keywords": ["pdf to image", "pdf", "laravel", "convert image ", "pdt-to-image", "laravel 5"],
     "require": {
