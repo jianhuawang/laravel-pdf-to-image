@@ -1,16 +1,19 @@
 # laravel-pdf-to-image
-Convert pdf files to images for Laravel 5
+Convert pdf files to images for Laravel.
 
 
-Laravel 5下的 PDF 转图片工具包，
-<p>本包提供了Laravel 5 把pdf文件转换为图片的功能, 同时基于Laravel Storage 对生成的图片进行存储和管理。</p>
+Laravel 框架下的 PDF 转图片工具包，
+<p>本包提供了Laravel 把pdf文件转换为图片的功能, 同时基于Laravel Storage 对生成的图片进行存储和管理。</p>
 <h4>功能列表：</h4>
 <ol>
 <li>按页转换PDF文件为图片，每页生成1张图片</li>
+<li>Convert every page of PDF fiel to one image.</li>
 <li>保存到指定的存储空间</li>
+<li>Save images to disk of Storage</li>
 <li>支持云存储(测试中)</li>
+<li>Save image to cloud disk.(Developing)</li>
 <li>支持定时任务后台转换图片(开发中)</li>
-<li>支持队列转换图片(开发中)</li>
+<li>Convert PDF file to images by cron task.(Developing)</li>
 </ol>
 <h4>依赖 Package dependencies</h4>
 <p>
@@ -30,7 +33,7 @@ Laravel 5下的 PDF 转图片工具包，
 
 <h4>安装Installation:</h4>
 <p>
-composer require jianhuawang/laravel-pdf-to-image:0.4
+    composer require jianhuawang/laravel-pdf-to-image:^0.4
 </p>
 <h5>Laravel >= 5.5, after install nothing left to do.</h5>
 <h5>Laravel <5.5</h5>
@@ -39,32 +42,24 @@ composer require jianhuawang/laravel-pdf-to-image:0.4
   JianhuaWang\PdfToImage\PdfToImageMaker::class,<br/>
   Add a aliase in aliases array:<br/>
   'PdfToImage'=>JianhuaWang\PdfToImage\PdfToImageFacade::class,
-  
-  
-  </p>
-  <p>
-     
-  </p>
+</p>
 
 <h4>用法Usage:</h4>
 <ol>
- <li>
-    Following code will read pdf file on (project root) + /storage/app/test.pdf, and convert first page to image, the image will be saved on (project root) + /storage/app/(current date)/(seconds).jpg
-    
+  <li>
+      Following code will read pdf file on (project root) + /storage/app/test.pdf, and convert first page to image, the image will be saved on (project root) + /storage/app/(current date)/(seconds).jpg
       $pdfFileNameWithPath='test.pdf';
       $converter=new JianhuaWang\PdfToImage\PdfToImageMaker($pdfFileNameWithPath);
 
       $converter->saveImage();// Default action is converting all pages to images.
-        
   </li>
   <li>
-  <p>
-    The following codes has same function with above.
-  </p>
-  <p>
-    
-    use PdfToImage;
-    PdfToImage::pdfFile('test.pdf')->saveImage();
-  </p>
-</li>
+      <p>
+        The following codes has same function with above.
+      </p>
+      <p>
+        use PdfToImage;
+        PdfToImage::pdfFile('test.pdf')->saveImage();
+      </p>
+  </li>
 </ol>
