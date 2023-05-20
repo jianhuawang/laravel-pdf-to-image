@@ -8,6 +8,7 @@ namespace JianhuaWang\PdfToImage;
  */
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Exception;
 
 class PdfToImageMaker
 {
@@ -21,8 +22,8 @@ class PdfToImageMaker
     protected $currentPage = 1;
     protected $offset = 0;
     protected $totalPages;
-    protected $pdfDisk = 'local';
-    protected $imageDisk = 'local';
+    protected $pdfDisk = ''; // default value: local
+    protected $imageDisk = '';
     protected $distDir;
     protected $imagePrefix;
 
@@ -170,14 +171,20 @@ class PdfToImageMaker
      */
     protected function getImagick($pagePointer)
     {
-        $pdfStorage = Storage::disk($this->pdfDisk);
-        if(!$pdfStorage->exists($this->pdfFile)){
-            throw new Exception("$this->pdfFile does not exists");
+        if($this->pdfDisk){
+            $pdfStorage = Storage::disk($this->pdfDisk);
+            if(!$pdfStorage->exists($this->pdfFile)){
+                throw new Exception("$this->pdfFile does not exists");
+            }
+            $pdfFileName = $pdfStorage->path($this->pdfFile);
+        }else{
+            $pdfFileName = $this->pdfFile;
         }
-        $pdfFileName = $pdfStorage->path($this->pdfFile);
 
         $imagick = new \imagick();
         
+        Image::configure(['driver' => 'imagick']);
+
         //set resolution
         $imagick->setResolution($this->resolutionX, $this->resolutionY);
 
@@ -186,13 +193,22 @@ class PdfToImageMaker
         return $imagick;
     }
 
+    public function getImageContent($pagePointer = 0)
+    {
+        $imageWriter = $this->getImagick($pagePointer);
+
+        $imageContent = Image::make($imageWriter)->encode($this->format, $this->quality);
+
+        return $imageContent;
+    }
+
     /**
      * save one page as image
      * 
      * @param int $pagePointer which page should be converted
      * @return bool
      */
-    public function saveImage($pagePointer = 1)
+    public function saveImage($pagePointer = 0)
     {
         $imageWriter = $this->getImagick($pagePointer);
 
@@ -215,6 +231,7 @@ class PdfToImageMaker
      */
     public function saveImages()
     {
+        $start = max($this->currentPage - 1, 0);
         $imagick = $this->getImagick($start);
         $totalPages = (int) $imagick->getnumberimages();
         $this->totalPages = $totalPages;
@@ -222,8 +239,6 @@ class PdfToImageMaker
         $end = intval($this->currentPage + $this->offset);
         $end = min($totalPages, $end);
 
-        $start = max($this->currentPage - 1, 0);
-        
         for ($i = $start; $i < $end; $i++) {
             $this->saveImage($i);
         }
@@ -261,5 +276,4 @@ class PdfToImageMaker
         $this->distDir=trim("/" . $this->distDir . "\\", "/");
         return trim( $this->distDir , "\\");
     }
-
 }
