@@ -16,23 +16,15 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "JianhuaWang\\PdfToImage\\": "src"
-        },
         "psr-4": {
             "JianhuaWang\\PdfToImage\\": "src"
-        },
-        "files": [
-        ]
+        }
     },
     "extra": {
         "laravel": {
             "providers": [
                 "JianhuaWang\\PdfToImage\\PdfToImageServiceProvider"
-            ],
-            "aliases": {
-                "PdfToImage": "JianhuaWang\\PdfToImage\\PdfToImageFacade"
-            }
+            ]
         }
     }
 
